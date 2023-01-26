@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sayısal Loto Oyunu</h1>
+    <p>Aşağıdaki inputlara tahminlerinizi giriniz;</p>
+<div id="sanssizSayilar">
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <input type="number" id="num3">
+    <input type="number" id="num4">
+    <input type="number" id="num5">
+    <input type="number" id="num6">
+</div>
+<button id="submitButton" onclick="checkNumbers()">Tahmin Gir</button>
+<hr>
+<button id="drawButton" onclick="randomLotteryNumbers()" disabled>Kurayı Çek</button>
+    <br>
+    <br>
+    <div id="sansliSayilar">
+        <input type="number" id="kuraNum1" disabled>
+        <input type="number" id="kuraNum2" disabled>
+        <input type="number" id="kuraNum3" disabled>
+        <input type="number" id="kuraNum4" disabled>
+        <input type="number" id="kuraNum5" disabled>
+        <input type="number" id="kuraNum6" disabled>
+    </div>
+<script>
+    const userSayilar = [];
+
+    function randomLotteryNumbers() {
+        const randomNumbers = [];
+        for (let i = 0; i < 6; i++) {
+            const randomNumber = Math.floor(Math.random() * 49) + 1;
+            if (randomNumbers.includes(randomNumber)) {
+                i--;
+            } else {
+                randomNumbers.push(randomNumber);
+            }
+        }
+        document.querySelectorAll("#sansliSayilar input").forEach((input, index) => {
+            input.value = randomNumbers[index];
+        });
+
+        for (let i = 0; i < 6; i++) {
+            if (randomNumbers.includes(userSayilar[i])) {
+                document.querySelectorAll("#sanssizSayilar input")[i].style.backgroundColor = "green";
+            } else {
+                document.querySelectorAll("#sanssizSayilar input")[i].style.backgroundColor = "red";
+            }
+        }
+
+    }
+
+    function checkNumbers() {
+       const inputs = document.querySelectorAll("#sanssizSayilar input")
+        //use for loop
+        for (let i = 0; i < inputs.length; i++) {
+            const input = inputs[i];
+            const value = parseInt(input.value);
+            if (value >= 1 || value < 50) {
+                if (userSayilar.includes(value)) {
+                    alert("Lütfen farklı sayılar giriniz");
+                    userSayilar.splice(userSayilar.indexOf(value), 1);
+                    console.log(userSayilar);
+                    return;
+                }else {
+                    userSayilar.push(value);
+                }
+            }
+          else {
+                alert("Lütfen 1 ile 49 arasında bir sayı giriniz");
+            }
+        }
+        document.querySelector("#drawButton").disabled = false;
+        document.querySelector("#submitButton").disabled = true;
+
+    }
+
+</script>
+</body>
+</html>

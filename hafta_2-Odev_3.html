@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="">
+            <label for="tahmin"><span id="tahminSayisi"></span>. Tahmininizi Giriniz:</label><br>
+            <input type="number" id="tahmin"/>
+            <button type="button" id="tahminYap">Tahmin Yap</button>
+            <hr>
+            <label for="" id="sonuc"></label>
+        </form>
+    </div>
+
+    <div id="table">
+
+    </div>
+
+
+    <script>
+        let tahminYap = document.getElementById("tahminYap");
+        let sonuc = document.getElementById("sonuc");
+        let tahmin = document.getElementById("tahmin");
+        let tahminSayisi = document.getElementById("tahminSayisi");
+        let counter = 1;
+        let tahminDurumu = true;
+        let randomSayi = Math.round(Math.random()*50);
+        tahminSayisi.innerHTML = counter;
+        console.log(randomSayi);
+            tahminYap.addEventListener("click",function(){
+                if(counter>=7){
+                    sonuc.innerHTML = "Deneme hakkınız kalmadı. Kaybettiniz.";
+                    tahminDurumu=false;
+                }else{
+                    if(tahmin.value==randomSayi){
+                        sonuc.innerHTML = `Tebrikler ${counter}. denemede bildiniz.`;
+                        tahminDurumu=false;
+                    }else if(tahmin.value>randomSayi){
+                        sonuc.innerHTML = "Daha küçük bir sayı girin";
+                    }else{
+                        sonuc.innerHTML = "Daha büyük bir sayı girin";
+                    }
+                    counter++;
+                }
+                tahminSayisi.innerHTML = counter;
+                console.log(counter)
+            })
+
+
+
+    </script>
+</body>
+</html>

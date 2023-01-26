@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@splidejs/splide/dist/css/splide.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@splidejs/splide/dist/css/splide-core.min.css"
+    />
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body{
+        background-color: #414041;
+      }
+      section{
+        width: 900px;
+        display: flex;
+        align-items: center;
+        margin: 200px auto;
+      }
+      .splide__track{
+        width: 100%;
+      }
+      .splide__list{
+        display: flex;
+        gap: 20px;
+      }
+
+    </style>
+    <title>Rick and Morty Slider</title>
+  </head>
+  <body>
+<h1 style="text-align: center; color: #fff; margin-top: 10px">Rick And Morty Slider</h1>
+<div class="container">
+  <section class="splide" aria-labelledby="carousel-heading">
+    <div class="splide__track">
+      <ul class="splide__list" id="splide_list"></ul>
+    </div>
+  </section>
+</div>
+
+    <script src="node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+    </script>
+  </body>
+</html>

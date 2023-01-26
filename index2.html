@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+    <p>1 den 10 a kadar olan sayıları yazdır</p>
+    <button type="submit" onclick="handleSubmit()" id="sonuc">Yazdır</button>
+    <p id="sayilar"></p>
+
+<script>
+function handleSubmit() {
+event.preventDefault();
+let i = 0;
+let dizi = [];
+    while(i<10){
+        i++
+        dizi.push(i);
+   }
+   document.getElementById("sayilar").innerHTML = dizi.join(",");
+}
+</script>
+</body>
+</html>

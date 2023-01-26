@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<form onsubmit="handleSubmit()">
+<label for="baslangic">Başlangıç:</label>
+<input type="number" id="baslangic" placeholder="Sayi girin"/>
+<br><br>
+<label for="bitis">Bitiş:</label>
+<input type="number" id="bitis" placeholder="Sayi girin"/>
+<br><br>
+<label for="artis">Artış miktarı:</label>
+<input type="number" id="artis" placeholder="Sayi girin"/>
+<br><br>
+<button type="submit" id="calculated">Hesapla</button>
+<br><br>
+<div id="araliktakiSayilar"></div>
+<div id="araliktakiSayiAdedi"></div>
+<div id="araliktakiSayilarToplami"></div>
+ 
+</form>
+<script>
+function handleSubmit() {
+event.preventDefault();
+var baslangic = Number(document.getElementById("baslangic").value);
+var bitis = Number(document.getElementById("bitis").value);
+var artis = Number(document.getElementById("artis").value);
+var araliktakiSayilar = document.getElementById("araliktakiSayilar");
+var araliktakiSayiAdedi = document.getElementById("araliktakiSayiAdedi");
+var araliktakiSayilarToplami = document.getElementById("araliktakiSayilarToplami");
+var dizi = [];
+var toplam = 0;
+var adet = 0;
+
+for(let i=baslangic; i<=bitis; i+=artis){
+    dizi.push(i);
+    toplam += i;
+    adet++;
+}
+araliktakiSayilar.innerHTML = "Bu aralıktaki sayılar: " +  dizi.join(",");
+araliktakiSayiAdedi.innerHTML ="Bu aralıktaki sayı adedi: " +  adet;
+araliktakiSayilarToplami.innerHTML = "Bu aralıktaki sayıların toplamı: " + toplam;
+
+}
+</script>
+</body>
+</html>

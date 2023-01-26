@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Kişiye Özel Tişört Sipariş Aracı</h1>
+        <br><hr><br>
+        <p>Lütfen oluşturmak istediğiniz siperişe ilişkin aşağıdaki bilgileri doldurunuz</p>
+        <br>
+        <form action="">
+            <h3>Kişisel Bilgiler</h3>
+            <br>    
+            <label for="ad">Adınız: </label>
+            <input type="text" id="ad">
+            <br>
+            <label for="soyad">Soyadınız: </label>
+            <input type="text" id="soyad">
+            <br>
+            <label for="dTarih">Doğum Tarihiniz: </label>
+            <input type="date" id="dTarih">
+            <br>
+            <label for="mail">Mail: </label>
+            <input type="text" id="mail">
+            <br>
+            <label for="tel">Telefon: </label>
+            <input type="tel" id="tel" maxlength="12" onkeypress="return isNumberKey(event)">
+            <br><hr><br>
+            <h3>Sipariş Bilgileri</h3>
+            <br>
+            <label for="tRenk">Tişört Rengi: </label>
+            <input type="color" id="tRenk">
+            <br>
+            <label for="yRenk">Tişört Rengi: </label>
+            <input type="color" id="yRenk">
+            <br>
+            <label for="tYazi">Tişört üzerinde yazılacak yazıyı giriniz: </label>
+            <input type="text" id="tYazi">
+            <br>
+            <label for="tAdet">Tişört Adeti: </label>
+            <input type="number" id="tAdet">
+            <br>
+            <label for="tBeden">Beden Seçiniz:</label>
+            <input type="range" id="tBeden" name="tBeden" list="bedenList" min="1" max="6" />
+            <datalist id="bedenList">
+                <option value="1">XS</option>
+                <option value="2">S</option>
+                <option value="3">M</option>
+                <option value="4">L</option>
+                <option value="5">XL</option>
+                <option value="6">XLL</option>
+            </datalist>
+            <button id="sec">Seç</button>
+            <input type="text" id="tBedenSec">
+            <br><hr><br>
+            <h3>Teslimat Bilgileri</h3>
+            <label for="adres">Adres: </label>
+            <textarea  id="adres" cols="30" rows="10"></textarea>
+            <br>
+            <label for="teslimT">Teslim tarihi için bir aralık seçiniz: </label>
+            <input type="week" id="teslimT">
+            <br><hr><br>
+            <h3>Ödeme Bilgileri</h3>
+            <br>
+            <label for="adSoyad">Ad Soyad: </label>
+            <input type="text" id="adSoyad">
+            <br>
+            <label for="kartNumara">Kart Numarası: </label>
+            <input type="text" id="kartNumara" maxlength="19" onkeypress="return isNumberKey(event)">
+            <br>
+            <label for="sonKullanma">Son Kullanma Tarihi: </label>
+            <input type="month" id="sonKullanma">
+            <br>
+            <label for="cvv">CVV: </label>
+            <input type="text" id="cvv" maxlength="3">
+            <br>
+            <button type="button" id="onayla">Onayla</button>
+        </form>
+    </div>
+
+    <div id="table">
+
+    </div>
+
+
+    <script>
+        let onayla = document.getElementById("onayla");
+        let kartNumara = document.getElementById("kartNumara");
+        let tel = document.getElementById("tel");
+        let table = document.getElementById("table");
+        let ad = document.getElementById("ad");
+        let soyad = document.getElementById("soyad");
+        let dTarih = document.getElementById("dTarih");
+        let mail = document.getElementById("mail");
+        let tRenk = document.getElementById("tRenk");
+        let yRenk = document.getElementById("yRenk");
+        let tYazi = document.getElementById("tYazi");
+        let tAdet = document.getElementById("tAdet");
+        let tBeden = document.getElementById("tBeden");
+        let sec = document.getElementById("sec");
+        let tBedenSec = document.getElementById("tBedenSec");
+        let adres = document.getElementById("adres");
+        let teslimT = document.getElementById("teslimT");
+        let adSoyad = document.getElementById("adSoyad");
+        let sonKullanma = document.getElementById("sonKullanma");
+        let cvv = document.getElementById("cvv");
+
+
+        kartNumara.addEventListener("keydown",function(){
+            if(this.value.length==4 || this.value.length==9 || this.value.length==14){
+                this.value = this.value + "-";
+            }
+        }); 
+        tel.addEventListener("keydown",function(){
+            if(this.value.length==3 || this.value.length==7){
+                this.value = this.value + "-";
+            }
+        }); 
+
+
+        onayla.addEventListener("click", function(){
+            var sonuc = `
+                <table border="1">
+                    <tr>
+                        <th colspan="3">SİPARİŞ ONAY</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="5">Kişisel Bilgiler</td>
+                        <td>Ad:</td>
+                        <td>${ad.value}</td>
+                    </tr>
+                    <tr>
+                        <td>Soyad:</td>
+                        <td>${soyad.value}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Doğum Tarihi: </td>
+                        <td>${dTarih.value}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mail: </td>
+                        <td>${mail.value}</td>
+                    </tr>
+                    <tr>
+                        <td>Telefon: </td>
+                        <td>${tel.value}</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5">Sipariş Bilgileri</td>
+                        <td>Tişört Rengi:</td>
+                        <td>${tRenk.value}</td>
+                    </tr>
+                    <tr>
+                        <td>Yazı Rengi:</td>
+                        <td>${yRenk.value}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Yazı: </td>
+                        <td>${tYazi.value}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Tişört Adeti: </td>
+                        <td>${tAdet.value}</td>
+                    </tr>
+                    <tr>
+                        <td>Tişört Bedeni: </td>
+                        <td>${tBeden.value}</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Teslimat Bilgileri</td>
+                        <td>Adres:</td>
+                        <td>${adres.value}</td>
+                    </tr>
+                    <tr>
+                        <td>Teslim Tarihi:</td>
+                        <td>${teslimT.value}</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Ödeme Bilgileri</td>
+                        <td>Ad Soyad:</td>
+                        <td>${adSoyad.value}</td>
+                    </tr>
+                    <tr>
+                        <td>Kart Numarası:</td>
+                        <td>${kartNumara.value}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Son Kullanma Tarihi: </td>
+                        <td>${sonKullanma.value}</td>
+                    </tr>
+
+                    <tr>
+                        <td>CVV: </td>
+                        <td>${cvv.value}</td>
+                    </tr>
+            </table>
+            `;
+            table.innerHTML = sonuc;
+            console.log(sonuc);
+        })
+
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
+</body>
+</html>

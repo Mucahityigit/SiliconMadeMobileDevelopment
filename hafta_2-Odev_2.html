@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="">
+            <label for="min">Minimum Değer:</label><br>
+            <input type="range" id="min" name="min" min="1" max="100" />
+            <button type="button" id="minSec">Seç</button>
+            <input type="text" id="minYaz">
+            <br>
+            <label for="max">Maksimum Değer:</label><br>
+            <input type="range" id="max" name="max" min="1" max="100" />
+            <button type="button" id="maxSec">Seç</button>
+            <input type="text" id="maxYaz">
+
+            <button type="button" id="uret">Üret</button>
+            <hr><br>
+            <p>Rastgele Sayı: <span id="sonuc"></span> </p>
+        </form>
+    </div>
+
+    <div id="table">
+
+    </div>
+
+
+    <script>
+        let uret = document.getElementById("uret");
+        let sonuc = document.getElementById("sonuc");
+        let min = document.getElementById("min");
+        let max = document.getElementById("max");
+        let minSec = document.getElementById("minSec");
+        let maxSec = document.getElementById("maxSec");
+        let minYaz = document.getElementById("minYaz");
+        let maxYaz = document.getElementById("maxYaz");
+
+        minSec.addEventListener("click", function(){
+            minYaz.value = min.value;
+        })
+        maxSec.addEventListener("click", function(){
+            maxYaz.value = max.value;
+        })
+        uret.addEventListener("click", function(){
+            console.log(min.value + " " + max.value)
+            sonuc.innerHTML = Math.round(Math.random() * (Number(max.value) - Number(min.value) + 1)) + Number(min.value);
+        })
+
+
+
+
+    </script>
+</body>
+</html>

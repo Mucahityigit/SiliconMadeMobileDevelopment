@@ -1,0 +1,324 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #dfdbe5;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.container {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 700px;
+  border-radius: 30px;
+  background-color: white;
+}
+
+/* sol alan başlangıç */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 80px;
+  align-items: center;
+  gap: 30px;
+}
+.navbar .icon {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .icon:hover {
+  background-color: #89dcff;
+}
+
+.navbar .icon-top {
+  display: flex;
+  align-items: flex-start;
+  margin: 30px 0;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.navbar .icon-end {
+  display: flex;
+  flex: 1;
+  width: 30px;
+  height: 30px;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* sol alan bitiş */
+
+.content {
+  display: flex;
+  flex: 0 1 670px;
+  background-color: #eee;
+}
+
+.content-main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 0 1 570px;
+  height: 650px;
+  margin: auto;
+}
+.content-main-header {
+  display: flex;
+  justify-content: space-between;
+}
+.content-main-icon {
+  display: flex;
+  gap: 10px;
+}
+
+.content-main-icon .passive {
+  opacity: 0.2;
+}
+.content-main-text {
+  padding: 5px 10px;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.content-main-social-media {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.content-main-social-media .active {
+  background-color: white;
+}
+.social-box {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 105px;
+  border: 3px solid white;
+  border-radius: 15px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.social-box:hover {
+  background-color: white;
+}
+.social-box .icon {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.twitter {
+  color: #1d9bf0;
+}
+.instagram {
+  color: #4f5bd5;
+}
+.youtube {
+  color: #ff0000;
+}
+.facebook {
+  color: #4267b2;
+}
+
+.followers-sum {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 3px;
+}
+.followers-text {
+  font-size: 11px;
+  color: #c2c0c4;
+  margin-bottom: 10px;
+}
+.menu-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+.content-main-chart {
+  position: relative;
+  background-color: white;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.chart-text{
+  display: flex;
+  width: 110px;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.chart-text span{
+  display: inline-block;
+}
+
+.green,.red{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-top: 11px;
+}
+.green{
+  background-color: #00b38f;
+}
+.red{
+  background-color: #C3365D;
+}
+.content-main-footer{
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.footer-left, .footer-right{
+  display: flex;
+  width: 50%;
+}
+
+.footer-left{
+  background-color: white;
+  padding: 15px;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.footer-left div{
+  border-bottom: 2px solid #eee;
+  margin-bottom: 10px;
+  padding-bottom:5px ;
+}
+
+.footer-left div span{
+  display: inline-block;
+  width: 49%;
+}
+
+.count{
+  text-align: end;
+}
+
+.footer-right{
+  justify-content: space-between;
+  gap: 20px;
+
+}
+
+.footer-right div{
+  display: flex;
+  flex-direction: column;
+  background-color: #643A69;
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+  flex: 1;
+  border-radius: 20px;
+}
+.title{
+  margin-bottom: 15px;
+}
+.numbers{
+  font-size: 35px;
+}
+.title,.numbers{
+  flex: 1;
+  color: white;
+}
+.percent{
+  display: flex;
+  flex: 2;
+  align-items: flex-end;
+  color: white;
+}
+
+.fa-angles-up{
+  color: #00b38f;
+  margin-right: 5px;
+}
+.fa-angles-down{
+  color: #ff0000;
+  margin-right: 5px;
+}
+
+.side-bar{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 30px;
+}
+.side-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gift{
+  font-size: 11px;
+  padding: 5px 10px;
+  background-color: #F9F0F3;
+  border-radius: 5px;
+  line-height: 15px;
+  cursor:pointer;
+}
+
+.side-img{
+  display: flex;
+  background-color: #eee;
+  flex-basis: 140px;
+  border-radius: 20px;
+}
+.side-img img{
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+
+.side-notifications{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.side-notifications div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #eee;
+  font-size: 13px;
+  padding: 15px;
+  border-radius: 10px;
+}
+.side-notifications i{
+  color: rgb(224, 165, 88);
+}
+
+.img{
+  width: 30px;
+  height: 30px;
+}
+.img img{
+  width: 100%;
+  height: 100%;
+}
+
+

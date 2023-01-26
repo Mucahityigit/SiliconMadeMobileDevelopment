@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .selected {
+            color: red;
+            font-weight: bold;
+        }
+        #numberContainer{
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<button id="sortButton" onclick="sirala()">Sırala</button>
+<button id="randomButton" disabled>Rastgele Sayı Seç</button>
+<div id="numberContainer"><br></div>
+<script>
+    const sortButton = document.getElementById('sortButton');
+    const randomButton = document.getElementById('randomButton');
+    const numberContainer = document.getElementById('numberContainer');
+
+    function sirala() {
+        for (let i = 1; i <= 99; i++) {
+            const numberSpan = document.createElement('span');
+            numberSpan.innerText = `${i} `;
+            numberContainer.appendChild(numberSpan);
+
+            if (i % 10 === 0) {
+                numberContainer.appendChild(document.createElement('br'));
+            }
+        }
+    }
+
+    sortButton.addEventListener('click', () => {
+        sortButton.disabled = true;
+        randomButton.disabled = false;
+    });
+
+    randomButton.addEventListener('click', () => {
+        const numberSpans = Array.from(numberContainer.children);
+        const randomIndex = Math.floor(Math.random() * numberSpans.length);
+        const randomSpan = numberSpans[randomIndex];
+        randomSpan.classList.add('selected');
+    });
+</script>
+</body>
+</html>

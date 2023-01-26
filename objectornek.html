@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="diziyeGonder(e)">
+        <label for="adSoyad">Ad Soyad: </label>
+        <input type="text" id="adSoyad" name="adSoyad">
+        <br>
+        <label for="model">Türkçe Notu: </label>
+        <input type="text" id="T1" name="T1">
+        <input type="text" id="T2" name="T2">
+        <input type="text" id="T3" name="T3">
+        <br>
+        <label for="model">Matematik Notu: </label>
+        <input type="text" id="M1" name="M1">
+        <input type="text" id="M2" name="M2">
+        <input type="text" id="M2" name="M3">
+        <br>
+        <label for="model">Fen Notu: </label>
+        <input type="text" id="F1" name="F1">
+        <input type="text" id="F2" name="F2">
+        <input type="text" id="F3" name="F3">
+        <br>
+        <label for="model">Sosyal Notu: </label>
+        <input type="text" id="S1" name="S1">
+        <input type="text" id="S2" name="S2">
+        <input type="text" id="S3" name="S3">
+        <br>
+        <button id="objeOlustur">Obje Oluştur</button>
+    </form>
+    <br><hr><br>
+    <form action="">
+        <p><span></span></p>
+        <label for="markaO">Sayısal Puanı: </label>
+        <input type="text" id="markaO" name="markaO">
+        <br>
+        <label for="modelO">Eşit Ağırlık Puanı: </label>
+        <input type="text" id="modelO" name="modelO">
+        <br>
+        <label for="modelYiliO">Sözel Puanı: </label>
+        <input type="text" id="modelYiliO" name="modelYiliO">
+        <br>
+    </form>
+
+
+
+    <script>
+        function diziyeGonder(e) {
+            e.preventDefault();
+            const data = new FormData(e.target);
+            const formData = Object.fromEntries(data.entries());
+            const {T1,T2,T3,M1,M2,M3,F1,F2,F3,S1,S2,S3} = formData
+            const notlar = {
+                T1,T2,T3,
+                M1,M2,M3,
+                F1,F2,F3,
+                S1,S2,S3
+            }
+            console.log(notlar.M1)
+        }
+    </script>
+    
+</body>
+</html>

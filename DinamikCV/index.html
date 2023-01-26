@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>CV Hazırlama Aracı</h1>
+      </div>
+      <div class="main">
+        <div class="item left">
+          <div class="first-item-header">
+            <h2>Metin İçerikleri</h2>
+          </div>
+          <div class="first-item-isim-kutusu">
+            <h4>İsim Kutusu</h4>
+            <div>
+              <span>Ad Soyad:</span>
+              <input
+                id="ad-soyad"
+                data-inner="right-ad-soyad"
+                type="text"
+                onkeyup="yazdir(this)"
+              />
+            </div>
+            <div>
+              <span>Unvan:</span>
+              <input
+                id="unvan"
+                data-inner="right-unvan"
+                type="text"
+                onkeyup="yazdir(this)"
+              />
+            </div>
+          </div>
+          <div class="first-item-iletisim-bilgileri">
+            <h4>İletişim Bilgileri</h4>
+            <div>
+              <span>Telefon:</span>
+              <input
+                data-inner="right-tel"
+                type="text"
+                onkeyup="yazdir(this)"
+              />
+            </div>
+
+            <div>
+              <span>Mail:</span>
+              <input
+                data-inner="right-mail"
+                type="text"
+                onkeyup="yazdir(this)"
+              />
+            </div>
+
+            <div>
+              <span>Web:</span>
+              <input
+                data-inner="right-web"
+                type="text"
+                onkeyup="yazdir(this)"
+              />
+            </div>
+
+            <div>
+              <span>Adres:</span>
+              <textarea
+                data-inner="right-adres"
+                onkeyup="yazdir(this)"
+              ></textarea>
+            </div>
+          </div>
+          <div class="first-item-egitim-bilgileri">
+            <h4>Eğitim Bilgileri</h4>
+            <div>
+              <span>Açıklama:</span>
+              <textarea
+                data-inner="right-egitim-aciklama"
+                onkeyup="yazdir(this)"
+              ></textarea>
+            </div>
+            <div class="select">
+              <span>Okul Sayısı:</span>
+              <select name="okulSayisi" id="okulSayisi" onchange="okulSayisi()">
+                <option value="">Seçiniz</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div id="okul"></div>
+          </div>
+          <div class="first-item-yetenekler">
+            <h4>Yetenekler</h4>
+            <div>
+              <span>Açıklama:</span>
+              <textarea
+                data-inner="right-yetenek-aciklama"
+                onkeyup="yazdir(this)"
+              ></textarea>
+            </div>
+            <div class="select">
+              <span>Yetenek Sayısı:</span>
+              <select name="yetenekSayisi" id="yetenekSayisi"  onchange="yetenekSayisi()">
+                <option value="">Seçiniz</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div id="yetenek"></div>
+          </div>
+          <div class="first-item-hakkımda">
+            <h4>Hakkımda</h4>
+            <div>
+              <span>Açıklama:</span
+              ><textarea
+                data-inner="right-hakkimda-aciklama"
+                onkeyup="yazdir(this)"
+              ></textarea>
+            </div>
+          </div>
+          <div class="first-item-is-deneyimi">
+            <h4>İş Deneyimi</h4>
+            <div>
+              <span>Açıklama:</span>
+              <textarea
+                data-inner="right-isdeneyimi-aciklama"
+                onkeyup="yazdir(this)"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="item middle">
+          <h2>Görünüş</h2>
+          <div class="second-item-renkler">
+            <h4>Renkler</h4>
+            <div>
+              <span>Arka Plan Rengi:</span>
+              <input
+                type="color"
+                data-inner="grow"
+                onchange="renkDegistir(this)"
+              />
+            </div>
+            <div>
+              <span>Sol Kolon Rengi:</span>
+              <input
+                type="color"
+                data-inner="sol-kolon"
+                onchange="renkDegistir(this)"
+              />
+            </div>
+            <div>
+              <span>İsim Kutusu Rengi:</span>
+              <input
+                type="color"
+                data-inner="isim-kutusu"
+                onchange="renkDegistir(this)"
+              />
+            </div>
+            <div>
+              <span>İsim Kutusu Yazı Rengi:</span>
+              <input
+                type="color"
+                data-inner="isim-kutu-yazi-renk"
+                onchange="renkDegistir(this)"
+              />
+            </div>
+          </div>
+          <div class="second-item-yazi-tipi">
+            <h4>Yazı Tipi</h4>
+            <div>
+              <span>Yazı Tipi:</span>
+              <select
+                name="yaziTipi"
+                id="yaziTipi"
+                onchange="yaziTipiDegistir()"
+              >
+                <option value="">Seçiniz</option>
+                <option value="1">Times New Roman</option>
+                <option value="2">Courier New</option>
+                <option value="3">Lucida Handwriting</option>
+              </select>
+            </div>
+          </div>
+          <div class="second-item-fotograf">
+            <h4>Fotoğraf</h4>
+            <div>
+              <span>Fotoğraf Çerçeve Şekli:</span>
+              <select
+                name="cerceveSekli"
+                id="cerceveSekli"
+                onchange="cerceveTipiDegistir()"
+              >
+                <option value="">Seçiniz</option>
+                <option value="1">Köşeli</option>
+                <option value="2">Oval</option>
+                <option value="3">Yuvarlak</option>
+              </select>
+            </div>
+          </div>
+          <div class="second-item-baslik-alti-cizgileri">
+            <h4>Başlık Altı Çizgileri</h4>
+            <div>
+              <span>Çizgi Rengi:</span>
+              <input
+                type="color"
+                data-inner="grow"
+                onchange="cizgiRenk(this)"
+              />
+            </div>
+            <div>
+              <span>Çizgi Şekli:</span>
+              <select name="cizgiSekli" id="cizgiSekli">
+                <option value="">Seçiniz</option>
+                <option value="Noktalı">Noktalı</option>
+                <option value="Çizgili">Çizgili</option>
+                <option value="Düz">Düz</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="item grow renklendir" id="grow">
+          <div class="cv-left renklendir" id="sol-kolon">
+            <div class="cv-left-fotograf">
+              <p>Fotoğraf</p>
+            </div>
+            <div class="cv-left-iletisim">
+              <div class="baslik">
+                <p>İLETİŞİM</p>
+              </div>
+              <ul>
+                <li class="yazdir" id="right-tel">{tel}</li>
+                <li class="yazdir" id="right-mail">{mail}</li>
+                <li class="yazdir" id="right-adres">{aders}</li>
+                <li class="yazdir" id="right-web">{web}</li>
+              </ul>
+            </div>
+            <div class="cv-left-iletisim">
+              <div class="baslik">
+                <p>EĞİTİM</p>
+              </div>
+              <div class="yazdir" id="right-egitim-aciklama"></div>
+              <div>
+                <ul id="egitim-ul"></ul>  
+              </div>
+            </div>
+            <div class="cv-left-iletisim">
+              <div class="baslik">
+                <p>YETENEKLER</p>
+              </div>
+              <div class="yazdir" id="right-yetenek-aciklama"></div>
+              <div>
+                <ul id="yetenek-ul"></ul>  
+              </div>
+            </div>
+          </div>
+          <div class="cv-right">
+            <div
+              class="cv-right-baslik cv-right-item renklendir"
+              id="isim-kutusu"
+            >
+              <div class="renklendir" id="isim-kutu-yazi-renk">
+                <div class="yazdir" id="right-ad-soyad">{ AD SOYAD }</div>
+                <div id="alt-cizgi"></div>
+                <div class="yazdir" id="right-unvan">{ ÜNVAN }</div>
+              </div>
+            </div>
+            <div class="cv-right-hakkimda cv-right-item">
+              <div class="baslik">HAKKIMDA</div>
+              <div class="yazdir" id="right-hakkimda-aciklama">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+                officia.
+              </div>
+            </div>
+            <div class="cv-right-is-deneyimi cv-right-item">
+              <div class="baslik">İŞ DENEYİMİ</div>
+              <div class="yazdir" id="right-isdeneyimi-aciklama">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+                officia.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

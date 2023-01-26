@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@uvarov.frontend/vanilla-calendar": "^2.2.5",
+    "air-datepicker": "^3.3.4"
+  }
+}
